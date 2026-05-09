@@ -20,9 +20,13 @@ README_PATH = ROOT / "README.md"
 EMERGING_PATH = ROOT / "EMERGING.md"
 GITHUB_API = "https://api.github.com/graphql"
 ENTRY_RE = re.compile(
-    r"\*\*\[(?P<label>[^\]]+)\]\((?P<url>https?://[^)]+)\)\*\*(?:\s+(?P<badge>!\[GitHub stars\]\(https://img\.shields\.io/github/stars/(?P<badge_repo>[^?]+)\?style=social\)))?"
+    r"(?:\*\*)?\[(?P<label>[^\]]+)\]\((?P<url>https?://[^)]+)\)(?:\*\*)?"
+    r"(?:\s+!\[GitHub stars\]\(https://img\.shields\.io/github/stars/(?P<inline_badge_repo>[^?]+)\?style=social\))?"
 )
-SECTION_RE = re.compile(r"^###\s+(?P<title>.+)$")
+BADGE_RE = re.compile(
+    r"!\[GitHub stars\]\(https://img\.shields\.io/github/stars/(?P<badge_repo>[^?]+)\?style=social\)"
+)
+SECTION_RE = re.compile(r"^#{2,3}\s+(?P<title>.+)$")
 SUBSECTION_RE = re.compile(r"^####\s+(?P<title>.+)$")
 INLINE_ANCHOR_RE = re.compile(r'^<a\s+id="(?P<id>[^"]+)"\s*></a>$')
 TOC_LINK_RE = re.compile(r"^- \[(?P<label>[^\]]+)\]\(#(?P<anchor>[^)]+)\)$")
@@ -107,23 +111,15 @@ def parse_entries(path: Path) -> tuple[list[ParsedEntry], list[Problem]]:
             current_section = subsection_match.group("title")
             continue
 
-        if not stripped.startswith("- ") or "**[" not in stripped:
+        if not stripped.startswith("- ") or "](" not in stripped:
             continue
 
         content = stripped[2:]
-        matches = list(ENTRY_RE.finditer(content))
-        if not matches:
-            problems.append(
-                Problem(
-                    "error",
-                    path.name,
-                    line_number,
-                    "entry link markup could not be parsed",
-                )
-            )
+        first_match = ENTRY_RE.search(content)
+        if not first_match:
             continue
 
-        description_index = content.find(" - ", matches[-1].end())
+        description_index = content.find(" - ", first_match.end())
         if description_index == -1:
             problems.append(
                 Problem(
@@ -137,6 +133,19 @@ def parse_entries(path: Path) -> tuple[list[ParsedEntry], list[Problem]]:
 
         head = content[:description_index]
         description = content[description_index + 3 :]
+        matches = list(ENTRY_RE.finditer(head))
+        if not matches:
+            problems.append(
+                Problem(
+                    "error",
+                    path.name,
+                    line_number,
+                    "entry link markup could not be parsed",
+                )
+            )
+            continue
+
+        badge_repos = {match.group("badge_repo") for match in BADGE_RE.finditer(content)}
 
         parsed_links: list[ParsedLink] = []
         if head[: matches[0].start()].strip():
@@ -167,31 +176,18 @@ def parse_entries(path: Path) -> tuple[list[ParsedEntry], list[Problem]]:
                 ParsedLink(
                     label=match.group("label"),
                     url=match.group("url"),
-                    badge_repo=match.group("badge_repo"),
+                    badge_repo=repo_ref.full_name if repo_ref and repo_ref.full_name in badge_repos else None,
                     repo_ref=repo_ref,
                 )
             )
 
-            if repo_ref and not match.group("badge"):
+            if repo_ref and repo_ref.full_name not in badge_repos:
                 problems.append(
                     Problem(
                         "error",
                         path.name,
                         line_number,
                         f"missing GitHub stars badge for {repo_ref.full_name}",
-                    )
-                )
-            if (
-                repo_ref
-                and match.group("badge_repo")
-                and match.group("badge_repo") != repo_ref.full_name
-            ):
-                problems.append(
-                    Problem(
-                        "error",
-                        path.name,
-                        line_number,
-                        f"badge repo `{match.group('badge_repo')}` does not match link repo `{repo_ref.full_name}`",
                     )
                 )
             previous_end = match.end()

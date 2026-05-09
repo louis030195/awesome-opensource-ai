@@ -1,16 +1,16 @@
 # Contributing to Awesome Open Source AI
 
-Thank you for considering contributing to this curated list. We maintain **elite-tier quality standards** - this list is for battle-tested tools that have proven their value in production environments.
+Thank you for considering contributing to this curated list. We maintain high quality standards for tools with evidence of real-world value.
 
 ---
 
-## Quality Bar: Battle-Tested & Production-Proven
+## Quality Bar
 
 This is not a directory of every open-source AI project. We curate tools that have survived real-world usage, earned community trust, and demonstrate sustained excellence.
 
-### Elite Tier Criteria (Must Meet ALL)
+### Inclusion Criteria
 
-Projects must satisfy **ALL of the following criteria** to be considered elite-tier. No exceptions except under maintainer discretion for truly exceptional cases.
+Projects should satisfy all of the following criteria. Maintainers may make exceptions for projects with clear technical importance.
 
 | Criterion | Threshold | Why It Matters |
 |-----------|-----------|----------------|
@@ -19,11 +19,11 @@ Projects must satisfy **ALL of the following criteria** to be considered elite-t
 | **🏭 Production Usage** | Evidence of real-world deployment | Case studies, integrations, production issues/PRs |
 | **📚 Quality Standards** | Proper docs, tests, releases | Not a thrown-together experiment |
 
-### No Exceptions Except Maintainer Discretion
+### Exceptions
 
-Meeting 3/4 is **not acceptable**. Projects must meet all criteria. The only path for projects falling short:
+Projects that do not meet every criterion may still be considered when there is strong evidence of technical importance or broad adoption.
 
-- **Maintainer Override** - Reserved for truly exceptional cases with extraordinary production traction or major organizational backing
+- Maintainer override - Reserved for exceptional cases with significant production traction or major organizational backing.
 
 ---
 
@@ -57,7 +57,7 @@ This applies to existing entries as well as new submissions. The list is activel
 
 ## What We're Looking For
 
-### ✅ Elite Indicators
+### ✅ Quality Indicators
 
 - **Sustained adoption** - Growing star count over time, not a spike
 - **Production testimonials** - Companies/teams using it in production
@@ -82,7 +82,7 @@ This applies to existing entries as well as new submissions. The list is activel
 
 ### Before Submitting
 
-1. **Verify your project meets ALL elite criteria** - if not, don't submit here (see the [Emerging & Innovations List →](EMERGING.md) for newer projects)
+1. **Verify your project meets the inclusion criteria** - if not, consider the [Emerging list](EMERGING.md) for newer projects
 2. **Check for duplicates** - search the README and EMERGING lists first
 3. **Ensure correct categorization** - place in the most specific section
 4. **Write a factual description** - one sentence, no fluff
@@ -91,13 +91,12 @@ This applies to existing entries as well as new submissions. The list is activel
 
 ### Automation Note
 
-- PRs authored by the trusted automation account `alvinreal` may be auto-merged **only** when they are README-only, single-category, non-structural maintenance PRs that pass all required validation.
-- Community PRs are never auto-merged.
+- Community PRs are reviewed by maintainers before merging.
 
 ### PR Requirements
 
 ```markdown
-- **[Project Name](https://github.com/owner/repo)** ![GitHub stars](https://img.shields.io/github/stars/owner/repo?style=social) - Factual one-sentence description.
+- [Project Name](https://github.com/owner/repo) - Factual one-sentence description. ![GitHub stars](https://img.shields.io/github/stars/owner/repo?style=social)
 ```
 
 **Good:**
@@ -113,9 +112,9 @@ Your PR must include:
 ```markdown
 ## Project: [Name]
 
-### Elite Criteria Checklist (ALL Required)
+### Inclusion Criteria Checklist
 
-- [ ] **Elite Criteria:** ALL criteria met
+- [ ] **Inclusion criteria:** Criteria met
   - ⭐ Stars: [count] (threshold: 1000+)
   - 🔄 Active: [last push date] (within 6 months)
   - 🏭 Production: [evidence link] (case study/integration)
@@ -124,8 +123,8 @@ Your PR must include:
 ### Evidence of Production Usage
 <!-- Links to case studies, integrations, or production usage -->
 
-### Why This Belongs in Elite Tier
-<!-- Explain which criteria you meet and why the project is battle-tested -->
+### Why This Belongs
+<!-- Explain which criteria are met and why the project is useful -->
 
 ### Category
 <!-- Which section this belongs in -->
@@ -135,7 +134,7 @@ Your PR must include:
 
 ## Categories & Quality Benchmarks
 
-Each category has established elite-tier benchmarks. Your submission should be comparable in quality to existing entries:
+Each category has established quality benchmarks. Your submission should be comparable in quality to existing entries:
 
 ### 1. Core Frameworks & Libraries
 - **Benchmarks:** PyTorch (80K+ ⭐), Transformers (150K+ ⭐), LangChain (90K+ ⭐)
@@ -202,7 +201,7 @@ The maintainer reserves final judgment on all submissions, including:
 - **Rejecting** projects that technically meet criteria but lack production substance
 - **Accepting** exceptional projects that may fall short on one criterion but demonstrate unique innovation with strong backing
 - **Removing** existing entries if quality degrades or project becomes abandoned
-- **Elevating** tools from emerging to elite tier as they mature
+- Moving tools from the emerging list to the main list as they mature
 
 **Remember:** Meeting ALL criteria guarantees consideration, not acceptance. This list is about trust and proven value. Maintainer override is reserved for truly exceptional cases only.
 
@@ -210,7 +209,7 @@ The maintainer reserves final judgment on all submissions, including:
 
 ## Emerging & Experimental Projects
 
-Have a promising project that doesn't meet elite criteria yet?
+Have a promising project that doesn't meet the main list criteria yet?
 
 We maintain the **[EMERGING.md](EMERGING.md)** list for:
 - Active projects with **fewer than 1000 stars**
@@ -223,17 +222,17 @@ We maintain the **[EMERGING.md](EMERGING.md)** list for:
 
 | Criterion | Threshold | Why It Matters |
 |-----------|-----------|----------------|
-| **⭐ GitHub Stars** | Fewer than 1000 | Below elite threshold but showing traction |
+| **⭐ GitHub Stars** | Fewer than 1000 | Below main list threshold but showing traction |
 | **🔄 Active Development** | Latest push within 6 months | Alive and evolving |
 | **📝 Innovation** | Clear unique approach | Not a "me too" project |
 | **📚 Quality** | Basic docs, working code | Professional intent |
-| **🔮 Potential** | Maintainer discretion | Gut check on future elite |
+| **🔮 Potential** | Maintainer discretion | Gut check on future inclusion |
 
-### Emerging → Elite Promotion Path
+### Emerging → Main List Promotion Path
 
-Projects can graduate from Emerging to Elite when they meet **all** elite-tier criteria:
+Projects can graduate from Emerging to the main list when they meet all main list criteria:
 
-| Criterion | Emerging | Elite |
+| Criterion | Emerging | Main List |
 |-----------|----------|-------|
 | Stars | <1000 | 1000+ |
 | Activity | 6 months | 6 months |
@@ -242,13 +241,13 @@ Projects can graduate from Emerging to Elite when they meet **all** elite-tier c
 
 **Promotion process:**
 1. Maintainer identifies project as ready (or author opens "Promotion Request" issue)
-2. Project is added to Elite Tier in appropriate category
+2. Project is added to the appropriate category in the main list
 3. Project stays in Emerging for 30 days with a "🎓 Graduated" badge
 4. Then removed from Emerging to keep the list fresh
 
 ### How to Submit to Emerging
 
-Same process as Elite, but lower thresholds. In your PR, specify this is for Emerging:
+Same process as the main list, but lower thresholds. In your PR, specify this is for Emerging:
 
 ```markdown
 ## Project: [Name]
@@ -262,7 +261,7 @@ Same process as Elite, but lower thresholds. In your PR, specify this is for Eme
 - [ ] **License** - OSI-approved
 
 ### Target List
-- [ ] Elite Tier (1000+ stars, active within 6 months, production usage)
+- [ ] Main list (1000+ stars, active within 6 months, production usage)
 - [x] Emerging List (active within 6 months, under 1000 stars, promising)
 
 ### Why This Belongs in Emerging
@@ -274,15 +273,15 @@ Same process as Elite, but lower thresholds. In your PR, specify this is for Eme
 - **Curated, not exhaustive** — still say no to low-effort projects
 - **Fresh eyes welcome** — newer projects can get visibility
 - **Quality over quantity** — 5 good entries > 50 mediocre ones
-- **Promotion ready** — design entries to smoothly graduate to Elite
+- **Promotion ready** — design entries to smoothly graduate to the main list
 
 ---
 
 ## Questions?
 
-Open an issue for discussion before submitting borderline cases. We're happy to help evaluate whether your project fits the elite tier or should wait for the emerging list.
+Open an issue for discussion before submitting borderline cases. We're happy to help evaluate whether your project fits the main list or should wait for the emerging list.
 
 ---
 
 *Last updated: April 2026*  
-*Quality standard: Battle-tested & production-proven*
+*Quality standard: maintained, documented, and useful in practice*

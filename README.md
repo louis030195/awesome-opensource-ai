@@ -166,6 +166,7 @@ Good entries should have a clear reason to exist. They should help people build,
 
 - [dbt-core](https://github.com/dbt-labs/dbt-core) - Transform data using software engineering best practices. The industry-standard framework for analytics engineering with 15M+ monthly downloads. Enables version control, testing, and documentation for SQL transformations. Apache 2.0 licensed. ![GitHub stars](https://img.shields.io/github/stars/dbt-labs/dbt-core?style=social)
 - [SQLMesh](https://github.com/TobikoData/sqlmesh) - Scalable and efficient data transformation framework with dbt compatibility. Features automatic data lineage, time travel, and virtual data environments for testing. Optimized for large-scale data warehouses. Apache 2.0 licensed. ![GitHub stars](https://img.shields.io/github/stars/TobikoData/sqlmesh?style=social)
+- [SLayer](https://github.com/MotleyAI/slayer) - Semantic layer for AI-powered data analytics. Allows AI agents to describe data models and query the data using an expressive format with measures, dimensions, and filters, without writing raw SQL. MCP, CLI, API, and Python clients. Embeddable as a Python library. MIT licensed. ![GitHub stars](https://img.shields.io/github/stars/MotleyAI/slayer?style=social)
 
 #### Data Quality & Validation
 
